@@ -1,0 +1,28 @@
+{
+  "name": "helsinki_part3_exercises",
+  "version": "0.0.1",
+  "description": "Exercises for part 3 of the full stack tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpiazza13/helsinki_part3_exercises.git"
+  },
+  "author": "Alex Piazza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alpiazza13/helsinki_part3_exercises/issues"
+  },
+  "homepage": "https://github.com/alpiazza13/helsinki_part3_exercises#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
