@@ -68,7 +68,7 @@ const generateId = (min, max) => {
 app.post('/api/persons', (request, response) => {
   const body = request.body
 
-  if (!body.content) {
+  if (!body.name) {
     return response.status(400).json({
       error: 'name missing'
     })
@@ -81,7 +81,7 @@ app.post('/api/persons', (request, response) => {
   }
 
   const person = {
-    name: body.content,
+    name: body.name,
     number: body.number,
     id: generateId(1, 100000),
   }
