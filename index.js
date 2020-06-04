@@ -4,11 +4,11 @@ const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 const Person = require('./models/person')
-morgan.token("body", req => JSON.stringify(req.body))
+morgan.token('body', req => JSON.stringify(req.body))
 
 app.use(express.json())
 app.use(morgan('tiny'))
-app.use(morgan(":body"))
+app.use(morgan(':body'))
 app.use(cors())
 app.use(express.static('build'))
 
@@ -30,23 +30,21 @@ app.get('/api/persons/:id', (request, response) => {
 })
 
 app.get('/info', (request, response) => {
-    const message = `The phonebook has ${persons.length} people`
-    const date = new Date()
-    response.send(`<p>The phonebook has ${persons.length} people</p>
+  const date = new Date()
+  response.send(`<p>The phonebook has some people</p>
                    <p>${date.toString()}</p>`)
 })
 
 app.delete('/api/persons/:id', (request, response, next) => {
   Person.findByIdAndRemove(request.params.id)
-    .then(result => {
+    .then(
       response.status(204).end()
-    })
+    )
     .catch(error => next(error))
 })
 
 app.post('/api/persons', (request, response, next) => {
   const body = request.body
-
   const person = new Person({
     name: body.name,
     number: body.number
@@ -55,7 +53,7 @@ app.post('/api/persons', (request, response, next) => {
   person.save().then(savedPerson => {
     response.json(savedPerson)
   })
-  .catch(error => next(error))
+    .catch(error => next(error))
 })
 
 
